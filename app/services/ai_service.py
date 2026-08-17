@@ -47,7 +47,7 @@ class AIService:
             "Content-Type": "application/json"
         }
         payload = {
-            "model": "llama-3.1-8b-instant",
+            "model": "llama-3.3-70b-versatile",
             "messages": messages,
             "temperature": 0.7
         }
