@@ -28,7 +28,15 @@ def create_app(config_class=Config):
     app.register_blueprint(pages_bp)
     app.register_blueprint(api_bp) # url_prefix='/api' tanımı routes.py içinde yapılmıştı
 
-    # 6. Sunucu Canlılık Kontrolü (/health)
+    # 6. Ana Dizin Karşılama Rotası (/)
+    @app.route('/')
+    def home():
+        return jsonify({
+            "status": "healthy",
+            "message": "More Than Move Backend API Aktif"
+        }), 200
+
+    # 7. Sunucu Canlılık Kontrolü (/health)
     @app.route('/health')
     def health_check():
         return jsonify({
@@ -36,5 +44,5 @@ def create_app(config_class=Config):
             "message": "Sunucu sorunsuz çalışıyor."
         }), 200
 
-    # 7. Uygulamayı Döndür
+    # 8. Uygulamayı Döndür
     return app 
