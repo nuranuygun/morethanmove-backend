@@ -31,10 +31,7 @@ def create_app(config_class=Config):
     # 6. Ana Dizin Karşılama Rotası (/)
     @app.route('/')
     def home():
-        return jsonify({
-            "status": "healthy",
-            "message": "More Than Move Backend API Aktif"
-        }), 200
+        return {"status": "healthy", "message": "More Than Move Backend API Aktif"}, 200
 
     # 7. Sunucu Canlılık Kontrolü (/health)
     @app.route('/health')
